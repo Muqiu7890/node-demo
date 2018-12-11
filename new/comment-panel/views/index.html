@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--在服务器端所有的资源都是通过 url 来标识，并不是向前端一样用相对路径  在服务器端开放了
+     /public 目录  来存放开放性资源-->
+    <link rel="stylesheet" href="/public/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+<!--浏览器渲染服务器响应的代码时，会从上到下解析，在遇到带有 src 属性的标签 或者 href（link）
+script的静态资源时 浏览器会自动对这些资源发起新请求-->
+<form class="container">
+    <h1 style="margin-bottom: 20px;">Example page header</h1>
+    <a href="/post" class="btn btn-success btn-lg active" role="button"
+       style="margin-bottom: 20px;">留言</a>
+    <ul class="list-group">
+        {{each content}}
+        <li class="list-group-item">{{$value.name}}说： {{$value.message}}<span class="pull-right">
+            {{$value.dataTime}}
+        </span></li>
+        {{/each}}
+    </ul>
+</form>
+
+</body>
+</html>
